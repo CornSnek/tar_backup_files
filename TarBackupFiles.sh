@@ -15,7 +15,7 @@ BACKUP_FOLDER=FileBackup_
 BACKUP_FOLDER+=$(date +"D%F_T%H-%M-%S")
 BACKUP_FOLDER+=.tar.gz
 echo Creating Backups/$BACKUP_FOLDER \(Contents: $BACKUP_FILES\)
-tar -czf $BACKUP_FILES_FOLDER/$BACKUP_FOLDER $BACKUP_FILES #Tar file backups are created near this script.
+tar -czf $BACKUP_FILES_FOLDER/$BACKUP_FOLDER $BACKUP_FILES #Tar file backups are created in the folder TarBackups.
 cd $BACKUP_FILES_FOLDER
 GET_TAR_FILES(){
 	TAR_FILE_BACKUPS=$(find . -maxdepth 1 -type f | grep FileBackup_)
