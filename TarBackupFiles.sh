@@ -18,7 +18,7 @@ echo Creating Backups/$BACKUP_FOLDER \(Contents: $BACKUP_FILES\)
 tar -czf $BACKUP_FILES_FOLDER/$BACKUP_FOLDER $BACKUP_FILES #Tar file backups are created in the folder TarBackups.
 cd $BACKUP_FILES_FOLDER
 GET_TAR_FILES(){
-	TAR_FILE_BACKUPS=$(find . -maxdepth 1 -type f | grep FileBackup_)
+	TAR_FILE_BACKUPS=$(find . -maxdepth 1 -type f | grep ^\./FileBackup_.*z$) #Grep regex used to exclude counting .gpg encrypted files.
 	NUM_TARS=$(printf "%s\n" $TAR_FILE_BACKUPS | wc -l)
 }
 GET_TAR_FILES
